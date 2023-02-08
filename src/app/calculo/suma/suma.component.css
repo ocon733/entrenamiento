@@ -1,0 +1,10 @@
+.cajaoperacion{
+    border-width: 1px;
+    margin: 15px;
+    width: 100px;
+    text-align:right;
+}
+.cajaoperacion p{
+    padding: 0px;
+    margin: 0px;
+}

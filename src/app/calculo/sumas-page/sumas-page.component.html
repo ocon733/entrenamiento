@@ -1,0 +1,10 @@
+<h3>Ejercicio de SUMAS</h3>
+<p>Revisa las siguientes 20 sumas en menos de 5 minutos</p>
+<hr/>
+
+<div *ngIf="!iniciado; else siIniciado">
+    <button (click)="iniciar()">Comenzar</button>
+</div>
+<ng-template #siIniciado>
+    <app-suma></app-suma>
+</ng-template>
