@@ -1,10 +1,24 @@
-<h3>Ejercicio de SUMAS</h3>
-<p>Revisa las siguientes 20 sumas en menos de 5 minutos</p>
-<hr/>
-
-<div *ngIf="!iniciado; else siIniciado">
-    <button (click)="iniciar()">Comenzar</button>
+<div class="cabecera-ejercicio">
+    <h3>Ejercicio de SUMAS : Revisa las siguientes 20 sumas en menos de 5 minutos, indicando si están bien o mal.</h3>
+    <hr/>
+    <div class="caja-reloj">
+        <p class="reloj">{{reloj}}</p>       
+    </div>
+     <div *ngIf="finalizado;">
+            <h2>FALLOS: {{puntuacion}}</h2>
+        </div> 
+    
+    <div *ngIf="!iniciado; else siIniciado">
+        <button mat-raised-button color="primary" (click)="iniciar()">Comenzar</button>
+    </div>
+   
 </div>
 <ng-template #siIniciado>
-    <app-suma></app-suma>
+    
+    <div class="caja-sumas">
+        <app-suma *ngFor="let s of sumas;index as indice;" [indice]=indice [finalizado]=finalizado  (onChangeResultado)="verifica($event)"></app-suma>
+    </div>
+    <button mat-raised-button color="primary" (click)="finalizar()">Finalizar</button>
 </ng-template>
+
+

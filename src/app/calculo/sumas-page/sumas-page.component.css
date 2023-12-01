@@ -1,0 +1,33 @@
+.cabecera-ejercicio{
+    text-align: center;
+}
+
+.caja-sumas {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    background-color: silver;
+}
+
+@font-face {
+    font-family: digital;
+    src:url("/assets/font/digital-7.ttf") format("truetype");
+}
+
+
+
+.caja-reloj{
+    background-color: rgb(32, 32, 32);
+    outline: 5px solid #aaa;
+    outline-offset: 0px;
+    padding: 10px;
+    width: 140px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.reloj{
+    font-family: digital;
+    color: red;
+    font-size: 50px;
+}

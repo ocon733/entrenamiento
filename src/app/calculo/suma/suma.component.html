@@ -1,7 +1,14 @@
-<div class="cajaoperacion">
+<mat-card class="cajaoperacion">
 
-    <p *ngFor="let sumando of sumandos; let i= index">{{sumando}}</p>
-<hr/>
-<p>xxx</p>
-<div><button>Verdadero</button><button>Falso</button></div>
-</div>
+  <div *ngFor="let sumando of sumandos">
+      <p *ngIf="sumando != 0">{{sumando}}</p>
+  </div>
+<div class="resultado-suma">{{resultadoF}}</div>
+  <div class="fondoOperacion">
+    <mat-radio-group>
+      <mat-radio-button (click)="correccion('V')" title="Bien" value="V">Bien</mat-radio-button>
+      <mat-radio-button (click)="correccion('F')" title="Mal" value="F">Mal</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <p *ngIf="finalizado">{{oper.msg}}</p>
+</mat-card>
