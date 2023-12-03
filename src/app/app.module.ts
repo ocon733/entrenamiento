@@ -10,7 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
 import { CalculoModule } from './calculo/calculo.module';
 import { CabeceraComponent } from './comun/cabecera/cabecera.component';
-import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [

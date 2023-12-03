@@ -1,10 +1,8 @@
 <mat-card class="cajaoperacion">
 
-  <div *ngFor="let sumando of sumandos">
-      <p>{{sumando}}</p>
-  </div>
-  <span class="operacion">+</span>
-<div class="resultado-suma">{{resultadoF}}</div>
+ 
+  <div>{{sumandos[0]}} : {{sumandos[1]}} = {{resultadoF}}</div>
+
   <div class="fondoOperacion">
     <mat-radio-group>
       <mat-radio-button (click)="correccion('V')" title="Bien" value="V">Bien</mat-radio-button>

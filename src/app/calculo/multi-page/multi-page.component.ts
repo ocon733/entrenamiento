@@ -6,22 +6,17 @@ import { Operacion } from 'src/app/interfaces/operacion.interface';
 
 @Component({
   selector: 'app-sumas-page',
-  templateUrl: './sumas-page.component.html',
-  styleUrls: ['./sumas-page.component.css']
+  templateUrl: './multi-page.component.html',
+  styleUrls: ['./multi-page.component.css']
 })
-export class SumasPageComponent {
+export class MultiPageComponent {
   iniciado:boolean = false;
   finalizado:boolean = false;
   puntuacion:number = 0;
-  sumas:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  OPERACIONES:number = 50;
-  /* DEMO ---> 
-  sumas:number[] = [0,0,0,0,0];
-  OPERACIONES:number = 5;
-  <--- DEMO */
+  sumas:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   operaciones:Operacion[] = [];
-  tiempo:number = 300;
-  reloj:string = "05:00";
+  tiempo:number = 600;
+  reloj:string = "10:00";
   timer:any;
 
 
@@ -31,7 +26,7 @@ export class SumasPageComponent {
     this.iniciado = true;
 
     // se inicializa el array de operaciones
-    for ( var i=0; i<this.OPERACIONES; i++){
+    for ( var i=0; i<40; i++){
       this.operaciones[i] = {indice:i, msg:"",relleno:false,correcto:false}
     }
 

@@ -5,23 +5,22 @@ import { Operacion } from 'src/app/interfaces/operacion.interface';
 
 
 @Component({
-  selector: 'app-sumas-page',
-  templateUrl: './sumas-page.component.html',
-  styleUrls: ['./sumas-page.component.css']
+  selector: 'app-resta-page',
+  templateUrl: './resta-page.component.html',
+  styleUrls: ['./resta-page.component.css']
 })
-export class SumasPageComponent {
+export class RestaPageComponent {
   iniciado:boolean = false;
   finalizado:boolean = false;
   puntuacion:number = 0;
-  sumas:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  OPERACIONES:number = 50;
-  /* DEMO ---> 
-  sumas:number[] = [0,0,0,0,0];
-  OPERACIONES:number = 5;
-  <--- DEMO */
+  sumas:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  OPERACIONES:number = 40;
+  //sumas:number[] = [0,0,0,0,0];
+  //OPERACIONES:number = 5;
+
   operaciones:Operacion[] = [];
-  tiempo:number = 300;
-  reloj:string = "05:00";
+  tiempo:number = 600;
+  reloj:string = "10:00";
   timer:any;
 
 

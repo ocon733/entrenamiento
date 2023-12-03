@@ -8,12 +8,25 @@ import {MatCardModule} from '@angular/material/card';
 import { HomeCalculoComponent } from './home-calculo/home-calculo.component';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import { CalculoRoutingModule } from './calculo-routing.module';
+import { RestaPageComponent } from './resta-page/resta-page.component';
+import { RestaComponent } from './resta/resta.component';
+import { MultiPageComponent } from './multi-page/multi-page.component';
+import { MultiComponent } from './multi/multi.component';
+import { DiviPageComponent } from './division-page/divi-page.component';
+import { DiviComponent } from './division/divi.component';
 
 @NgModule({
   declarations: [
     SumasPageComponent,
     SumaComponent,
-    HomeCalculoComponent  ],
+    HomeCalculoComponent,
+    RestaPageComponent,
+    RestaComponent,
+    MultiComponent,
+    MultiPageComponent,
+    DiviPageComponent,
+    DiviComponent
+    ],
   imports: [
     CommonModule,
     MatButtonModule,

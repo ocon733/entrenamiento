@@ -20,10 +20,3 @@
     border-top-style: inset;
     border-top-width: 1px;
 }
-
-.operacion{
-    position: absolute;
-    top: 65px;
-    font-size: large; 
-    left:15px;
-}
