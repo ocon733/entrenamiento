@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class ComprensionComponent {
 
+  generarS1(){
+
+  }
+
+  generarS2(){
+    
+  }
+  
+
+
 }

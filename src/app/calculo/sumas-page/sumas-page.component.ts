@@ -1,5 +1,7 @@
 import { Component, EventEmitter } from '@angular/core';
-import { Operacion } from 'src/app/interfaces/operacion.interface';
+import { Operacion } from 'src/app/dashboard/interfaces/operacion.interface';
+import { ResultadosService } from '../services/resultados.service';
+import { Resultado } from '../interfaces/resultado.interface';
 
 
 
@@ -24,7 +26,7 @@ export class SumasPageComponent {
   reloj:string = "05:00";
   timer:any;
 
-
+  constructor(private resultadoService:ResultadosService){ }
 
   iniciar(){
 
@@ -45,12 +47,34 @@ export class SumasPageComponent {
 
   finalizar(){
     this.finalizado = true;
+    let puntos:number = 0;
     clearInterval(this.timer);
     for (let oper of this.operaciones){
       if ( !oper.relleno || !oper.correcto){
-        this.puntuacion++;      
+        puntos++;      
       }
     }
+    this.puntuacion = puntos;
+
+    
+    let resp = confirm("¿Desea guardar el resultado?");
+
+    if ( resp){
+      let res:Resultado = {
+        id_resultado:null,
+        id_usuario: parseInt("" + sessionStorage.getItem("id")),
+        categoria:"aritmetica",
+        tipo:"sumas",
+        tiempo_total: this.tiempo,
+        puntuacion: this.puntuacion
+        } 
+      
+      this.resultadoService.setResultado(res).subscribe(() => {
+        alert("Registro guardado");
+      });
+    }
+
+
   }
 
 

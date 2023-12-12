@@ -4,6 +4,8 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import {MatCardModule} from '@angular/material/card';
     DashboardRoutingModule,
     MatInputModule,
     MatCardModule,
+    MatTableModule,
+    MatSelectModule
   ]
 })
 export class DashboardModule { }

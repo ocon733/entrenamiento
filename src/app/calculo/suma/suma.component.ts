@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Operacion } from 'src/app/interfaces/operacion.interface';
+import { Operacion } from 'src/app/dashboard/interfaces/operacion.interface';
 
 @Component({
   selector: 'app-suma',

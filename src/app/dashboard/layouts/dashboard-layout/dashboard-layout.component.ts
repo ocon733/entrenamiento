@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Resultado } from 'src/app/calculo/interfaces/resultado.interface';
+import { EstadisticasService } from '../../services/estadisticas.service';
+
 
 @Component({
   selector: 'app-dashboard-layout',
@@ -6,5 +9,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard-layout.component.css']
 })
 export class DashboardLayoutComponent {
+
+  resultados:Resultado[] = [];
+
+  displayedColumns:string[] = [ 'puntuacion', 'categoria','tipo','tiempo_total'];
+  
+  @ViewChild('test') test!: ElementRef;
+
+  operacion:string = "";
+
+  constructor( private estadisticaService: EstadisticasService) {}
+
+
+
+
+  cargaEstadisticas(){
+
+    let tipo:string = this.test.nativeElement.value;
+    this.operacion = this.test.nativeElement.selectedOptions[0].innerText;
+
+    this.estadisticaService.getResultados(tipo).subscribe((resp) => this.resultados = resp );
+
+  }
 
 }

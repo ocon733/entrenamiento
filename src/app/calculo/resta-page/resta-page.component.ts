@@ -1,5 +1,7 @@
 import { Component, EventEmitter } from '@angular/core';
-import { Operacion } from 'src/app/interfaces/operacion.interface';
+import { Operacion } from 'src/app/dashboard/interfaces/operacion.interface';
+import { Resultado } from '../interfaces/resultado.interface';
+import { ResultadosService } from '../services/resultados.service';
 
 
 
@@ -23,7 +25,7 @@ export class RestaPageComponent {
   reloj:string = "10:00";
   timer:any;
 
-
+  constructor(private resultadoService:ResultadosService){ }
 
   iniciar(){
 
@@ -50,6 +52,24 @@ export class RestaPageComponent {
         this.puntuacion++;      
       }
     }
+
+    let resp = confirm("¿Desea guardar el resultado?");
+
+    if ( resp){
+      let res:Resultado = {
+        id_resultado:null,
+        id_usuario: parseInt("" + sessionStorage.getItem("id")),
+        categoria:"aritmetica",
+        tipo:"restas",
+        tiempo_total: this.tiempo,
+        puntuacion: this.puntuacion
+        } 
+      
+      this.resultadoService.setResultado(res).subscribe(() => {
+        alert("Registro guardado");
+      });
+    }
+
   }
 
 
