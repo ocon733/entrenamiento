@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from '../global.service';
+import { Usuario } from 'src/app/auth/interfaces/perfil.interface';
 
 @Component({
   selector: 'app-pie',
@@ -7,17 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PieComponent implements OnInit{
 
-  nombre:string|null ="Usuario no registrado";
-  email:string|null = " - ";
-  id_user:string|null = "0";
+  constructor(private globalService:GlobalService ) {}
 
+  get user():Usuario {
+    return this.globalService.usuario;
+  }
 
   ngOnInit(): void {}
-
-  reload(){
-    this.nombre = sessionStorage.getItem("nombre");
-    this.email = sessionStorage.getItem("email");
-    this.id_user = sessionStorage.getItem("id_usuario");
-  }
 
 }

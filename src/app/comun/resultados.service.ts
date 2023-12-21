@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Resultado } from '../interfaces/resultado.interface';
+import { Resultado } from '../calculo/interfaces/resultado.interface';
 import { Constantes } from 'src/app/comun/constantes';
 import { Observable } from 'rxjs';
 

@@ -1,16 +1,46 @@
 
 
-<h3>Comprensión verbal</h3><hr/>
-<div>
-    <h2>Semejanzas:</h2>
-    <p>A partir de dos palabras generadas aleatoriamente explicar diferencias y semejanzas</p>
-    <button mat-raised-button color="primary" (click)="generarS1()">Generar semejanza primera</button>
-    <input type="text"><input type="text">
+<div class="caja-reloj">
+    <p class="reloj">{{reloj}}</p>       
+</div>
 
-    
-    <button mat-raised-button color="primary" (click)="generarS2()">Generar semejanza segunda</button>
-    <input type="text"><input type="text">
-    <textarea></textarea>
+<div  [formGroup]="semejanzasForm">
+ <mat-card class="contenedor">
+    <mat-card-header>
+        <mat-card-title>Comprensión verbal: Semejanzas</mat-card-title>
+        <mat-card-subtitle>A partir de dos palabras generadas aleatoriamente explicar diferencias y semejanzas</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content class="semejanzas">
+
+        
+       
+         <mat-form-field >  
+            <mat-label>Primera palabra a comparar</mat-label>
+            <input matInput  type="text" formControlName="semejanza1" >
+        </mat-form-field>
+
+        <mat-form-field>        
+            <mat-label>Segunda palabra a comparar</mat-label>
+            <input matInput  type="text" formControlName="semejanza2" >
+        </mat-form-field>
+     
+            <textarea rows="20" cols="100" ></textarea>
+        <mat-form-field style="width: 300px">        
+            <mat-label>Indicar valoracion del 1 al 10</mat-label>
+            <input matInput  type="number" formControlName="puntuacion" >
+        </mat-form-field>
+           
+        
+    </mat-card-content>    
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="generar()">Iniciar</button>
+        <button mat-raised-button color="primary" (click)="finalizar()">Finalizar</button>
+        <button mat-raised-button color="warn" (click)="guardar()">Guardar resultado</button>
+        
+    </mat-card-actions>
+   </mat-card> 
+   
 </div>
 
 

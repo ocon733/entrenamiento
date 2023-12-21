@@ -4,5 +4,6 @@ export interface Resultado{
     puntuacion:number|null,
       tipo: string|null,
       categoria: string|null,
-      tiempo_total:number|null    
+      tiempo_total:number|null,
+      fecha:Date|null 
     }

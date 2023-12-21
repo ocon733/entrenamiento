@@ -1,7 +1,8 @@
 import { Component, EventEmitter } from '@angular/core';
 import { Operacion } from 'src/app/dashboard/interfaces/operacion.interface';
-import { ResultadosService } from '../services/resultados.service';
+import { ResultadosService } from '../../comun/resultados.service';
 import { Resultado } from '../interfaces/resultado.interface';
+import { GlobalService } from 'src/app/comun/global.service';
 
 
 
@@ -26,7 +27,7 @@ export class SumasPageComponent {
   reloj:string = "05:00";
   timer:any;
 
-  constructor(private resultadoService:ResultadosService){ }
+  constructor(private resultadoService:ResultadosService, private globalService:GlobalService){ }
 
   iniciar(){
 
@@ -62,11 +63,12 @@ export class SumasPageComponent {
     if ( resp){
       let res:Resultado = {
         id_resultado:null,
-        id_usuario: parseInt("" + sessionStorage.getItem("id")),
+        id_usuario:  this.globalService.usuario.id_usuario,
         categoria:"aritmetica",
         tipo:"sumas",
         tiempo_total: this.tiempo,
-        puntuacion: this.puntuacion
+        puntuacion: this.puntuacion,
+        fecha:new Date()
         } 
       
       this.resultadoService.setResultado(res).subscribe(() => {

@@ -1,19 +1,86 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { PalabrasService } from '../services/palabras.service';
+import { Resultado } from 'src/app/calculo/interfaces/resultado.interface';
+import { GlobalService } from 'src/app/comun/global.service';
+import { ResultadosService } from 'src/app/comun/resultados.service';
 
 @Component({
   selector: 'app-comprension',
   templateUrl: './comprension.component.html',
   styleUrls: ['./comprension.component.css']
 })
-export class ComprensionComponent {
+export class ComprensionComponent implements OnInit{
 
-  generarS1(){
+  semejanzasForm!: FormGroup;
+  tiempo:number = 0;
+  reloj:string = "00:00";
+  timer:any;
+
+
+  ngOnInit(): void {
+    this.semejanzasForm = this.formBuilder.group(
+      {
+      semejanza1:[""],
+      semejanza2:[""],
+      puntuacion:[""]
+      });
+  }
+
+  constructor( private formBuilder:FormBuilder, 
+    private palabraService:PalabrasService,
+    private globalService:GlobalService,
+    private resultadosService:ResultadosService) {}
+
+ 
+
+  generar(){
+
+    let id_palabra1:number = Math.round(Math.random() * 55092); 
+    this.palabraService.getPalabra(id_palabra1).subscribe((palabra) =>  this.semejanzasForm.controls["semejanza2"].setValue(palabra.palabra) )
+
+    let id_palabra2 = Math.round(Math.random() * 55092); 
+    this.palabraService.getPalabra(id_palabra2).subscribe((palabra) =>  this.semejanzasForm.controls["semejanza1"].setValue(palabra.palabra) )
+
+
+    this.timer = setInterval( () => {
+      this.contador();
+    }, 1000 );
 
   }
 
-  generarS2(){
+  finalizar(){
+    clearInterval(this.timer);
+  }
+
+  contador(){
+    this.tiempo = this.tiempo +1;
+
+      let min:string = ""+ Math.trunc(this.tiempo / 60);
+      min.length == 1 ? min = "0" + min : min = min;
+      let seg:string = ""+ Math.trunc(this.tiempo % 60);
+      seg.length == 1 ? seg = "0" + seg : seg = seg;
+      this.reloj = min + ":" + seg;
+  }
+
+  guardar(){
+
+    let res:Resultado = {
+      id_resultado:null,
+      id_usuario:  this.globalService.usuario.id_usuario,
+      categoria:"wais4",
+      tipo:"semejanzas",
+      tiempo_total: this.tiempo,
+      puntuacion: this.semejanzasForm.controls["puntuacion"].value,
+      fecha:new Date()
+      } 
     
+    this.resultadosService.setResultado(res).subscribe(() => {
+      alert("Registro guardado");
+    });
   }
+
+
   
 
 

@@ -1,0 +1,40 @@
+
+
+.contenedor{
+    margin: 25px;
+    padding: 15px;
+}
+
+.semejanzas{
+    display:flex;
+    flex-direction: column;
+}
+
+@font-face {
+    font-family: digital;
+    src:url("/assets/font/digital-7.ttf") format("truetype");
+}
+
+
+
+.caja-reloj{
+    background-color: rgb(32, 32, 32);
+    outline: 5px solid #aaa;
+    outline-offset: 0px;
+    padding: 10px;
+    width: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.reloj{
+    font-family: digital;
+    color: red;
+    font-size: 40px;
+}
+
+button{
+    margin-left: 5px;
+}

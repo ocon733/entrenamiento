@@ -15,7 +15,8 @@ export class LoginPageComponent implements OnInit{
   submitted = false;
 
   constructor(  private formBuilder:FormBuilder, 
-                private loginService:AuthService ){ }
+                private loginService:AuthService,
+                private globalService:GlobalService ){ }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group(
@@ -47,17 +48,9 @@ export class LoginPageComponent implements OnInit{
       "ultimo_acceso":new Date()
     };
     
-    this.loginService.getLogin(user).subscribe( {
-      next(value){
-        user = value;
-      },
-      complete(){
+    this.loginService.getLogin(user).subscribe( value =>  this.globalService.usuario = value );
 
-        sessionStorage.setItem('nombre', user.nombre + ' ' + user.apellidos);
-        sessionStorage.setItem('email', user.email);
-        sessionStorage.setItem('id', "" + user.id_usuario);
-      }
-    });
+      
  
     
   }

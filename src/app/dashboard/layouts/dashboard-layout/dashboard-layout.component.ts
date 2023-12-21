@@ -12,7 +12,7 @@ export class DashboardLayoutComponent {
 
   resultados:Resultado[] = [];
 
-  displayedColumns:string[] = [ 'puntuacion', 'categoria','tipo','tiempo_total'];
+  displayedColumns:string[] = [ 'tipo','puntuacion','tiempo_total', 'fecha'];
   
   @ViewChild('test') test!: ElementRef;
 

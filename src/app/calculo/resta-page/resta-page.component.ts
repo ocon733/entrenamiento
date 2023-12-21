@@ -1,7 +1,8 @@
 import { Component, EventEmitter } from '@angular/core';
 import { Operacion } from 'src/app/dashboard/interfaces/operacion.interface';
 import { Resultado } from '../interfaces/resultado.interface';
-import { ResultadosService } from '../services/resultados.service';
+import { ResultadosService } from '../../comun/resultados.service';
+import { GlobalService } from 'src/app/comun/global.service';
 
 
 
@@ -25,7 +26,7 @@ export class RestaPageComponent {
   reloj:string = "10:00";
   timer:any;
 
-  constructor(private resultadoService:ResultadosService){ }
+  constructor(private resultadoService:ResultadosService,private globalService:GlobalService ){ }
 
   iniciar(){
 
@@ -58,11 +59,12 @@ export class RestaPageComponent {
     if ( resp){
       let res:Resultado = {
         id_resultado:null,
-        id_usuario: parseInt("" + sessionStorage.getItem("id")),
+        id_usuario:  this.globalService.usuario.id_usuario,
         categoria:"aritmetica",
         tipo:"restas",
         tiempo_total: this.tiempo,
-        puntuacion: this.puntuacion
+        puntuacion: this.puntuacion,
+        fecha:new Date()
         } 
       
       this.resultadoService.setResultado(res).subscribe(() => {

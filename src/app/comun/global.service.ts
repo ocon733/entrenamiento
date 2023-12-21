@@ -7,7 +7,7 @@ import { Usuario } from '../auth/interfaces/perfil.interface';
 })
 export class GlobalService {
 
-  public usuario = new BehaviorSubject<Usuario>({
+  public usuario: Usuario= ({
     "id_usuario":0,
     "nombre":"",
     "apellidos":"",

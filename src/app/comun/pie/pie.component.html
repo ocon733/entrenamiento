@@ -1,2 +1,2 @@
-<div>{{id_user}}: {{nombre}} - {{email}} </div>
-<button (click)="reload()">Cargar del Session Storage</button>
+<footer *ngIf="user.id_usuario !=0">ID: {{user.id_usuario}}  - NOMBRE: {{user.nombre}} {{user.apellidos}}  - EMAIL:  {{user.email}} </footer>
+

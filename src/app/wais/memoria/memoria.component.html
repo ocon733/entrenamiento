@@ -1,1 +1,54 @@
-<p>memoria works!</p>
+<div [formGroup]="memoriaForm">
+    <button mat-raised-button color="primary" (click)="iniciar()">Iniciar</button>
+    <button mat-raised-button color="primary" (click)="finalizar()">Finalizar</button>
+    <div class="caja-reloj">
+        <p class="reloj">{{reloj}}</p>       
+    </div>
+    <mat-form-field>        
+        <mat-label>Generado</mat-label>
+        <input matInput  type="text" formControlName="generado" >
+    </mat-form-field>
+    <div>
+        <mat-form-field> 
+            <input matInput  type="text" formControlName="generado1" >
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput  type="text" formControlName="generado2" >
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput  type="text" formControlName="generado3" >
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput  type="text" formControlName="generado4" >
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput  type="text" formControlName="generado5" >
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput  type="text" formControlName="generado6" >
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput  type="text" formControlName="generado7" >
+        </mat-form-field>
+
+            <mat-form-field>
+            <input matInput  type="text" formControlName="generado8" >
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput  type="text" formControlName="generado9" >
+        </mat-form-field>
+
+            <mat-form-field>
+            <input matInput  type="text" formControlName="generado10" >
+        </mat-form-field>
+    </div>
+</div>
+
+
