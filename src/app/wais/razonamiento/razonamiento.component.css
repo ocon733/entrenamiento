@@ -1,0 +1,100 @@
+@font-face {
+    font-family: digital;
+    src:url("/assets/font/digital-7.ttf") format("truetype");
+}
+
+
+button{
+    margin:5px;
+}
+
+
+.caja-reloj{
+    background-color: rgb(32, 32, 32);
+    outline: 5px solid #aaa;
+    outline-offset: 0px;
+    padding: 10px;
+    width: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.reloj{
+    font-family: digital;
+    color: red;
+    font-size: 40px;
+}
+
+.img1{
+    position:absolute;
+    top:300px;
+    left: 150px;
+    width: 50px;
+    height: 50px;
+}
+.img2{
+    position:absolute;
+    top:300px;
+    left: 200px;
+    width: 50px;
+    height: 50px;
+}
+.img3{
+    position:absolute;
+    top:300px;
+    left: 250px;
+    width: 50px;
+    height: 50px;
+}
+.img4{
+    position:absolute;
+    top:350px;
+    left: 150px;
+    width: 50px;
+    height: 50px;
+}
+.img5{
+    position:absolute;
+    top:350px;
+    left: 200px;
+    width: 50px;
+    height: 50px;
+}
+.img6{
+    position:absolute;
+    top:350px;
+    left: 250px;
+    width: 50px;
+    height: 50px;
+}
+.img7{
+    position:absolute;
+    top:400px;
+    left: 150px;
+    width: 50px;
+    height: 50px;
+}
+.img8{
+    position:absolute;
+    top:400px;
+    left: 200px;
+    width: 50px;
+    height: 50px;
+}
+.img9{
+    position:absolute;
+    top:400px;
+    left: 250px;
+    width: 50px;
+    height: 50px;
+}
+
+.caja{
+  
+  
+    height: 260px;
+    background-color: #e7e7e7;
+}
+

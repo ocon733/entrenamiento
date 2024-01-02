@@ -22,3 +22,26 @@
     color: red;
     font-size: 40px;
 }
+
+.resultado{
+    color:white;
+    width: 100px;
+}
+
+.ngenerado{
+    width: 300px;
+    outline: 3px solid #aaa;
+    text-align: right;
+    margin: 40px;
+}
+
+.ngenerado h1{
+    padding:3px;
+}
+
+button{
+    margin:5px;
+}
+table{
+    margin-left: 5px;
+}

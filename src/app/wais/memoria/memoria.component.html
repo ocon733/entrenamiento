@@ -1,53 +1,99 @@
 <div [formGroup]="memoriaForm">
     <button mat-raised-button color="primary" (click)="iniciar()">Iniciar</button>
     <button mat-raised-button color="primary" (click)="finalizar()">Finalizar</button>
+    <button mat-raised-button color="primary" (click)="guardar()">Guardar resultados</button>
+    
     <div class="caja-reloj">
-        <p class="reloj">{{reloj}}</p>       
+        <p class="reloj">{{reloj}}</p>          
     </div>
-    <mat-form-field>        
-        <mat-label>Generado</mat-label>
-        <input matInput  type="text" formControlName="generado" >
-    </mat-form-field>
+    <div class="ngenerado"><h1>{{generado}}</h1></div>
+   
+    
     <div>
-        <mat-form-field> 
-            <input matInput  type="text" formControlName="generado1" >
-        </mat-form-field>
-        
-        <mat-form-field>
-            <input matInput  type="text" formControlName="generado2" >
-        </mat-form-field>
-        
-        <mat-form-field>
-            <input matInput  type="text" formControlName="generado3" >
-        </mat-form-field>
-        
-        <mat-form-field>
-            <input matInput  type="text" formControlName="generado4" >
-        </mat-form-field>
-        
-        <mat-form-field>
-            <input matInput  type="text" formControlName="generado5" >
-        </mat-form-field>
-        
-        <mat-form-field>
-            <input matInput  type="text" formControlName="generado6" >
-        </mat-form-field>
-        
-        <mat-form-field>
-            <input matInput  type="text" formControlName="generado7" >
-        </mat-form-field>
+        <table  *ngIf="!previo">
+            <tr>
+                <td>  (1)
+                    <mat-form-field> 
+                       <input matInput  type="text" formControlName="generado0" >
+                    </mat-form-field>
+                </td>
 
-            <mat-form-field>
-            <input matInput  type="text" formControlName="generado8" >
-        </mat-form-field>
-        
-        <mat-form-field>
-            <input matInput  type="text" formControlName="generado9" >
-        </mat-form-field>
+                <td class="resultado">{{array[0]}}</td>
 
-            <mat-form-field>
-            <input matInput  type="text" formControlName="generado10" >
-        </mat-form-field>
+                <td>(2)
+                    <mat-form-field> 
+                        <input matInput  type="text" formControlName="generado1" >
+                    </mat-form-field>
+                </td>
+
+                <td class="resultado">
+                    {{array[1]}}
+                </td>
+
+                <td>
+                    (3)
+                    <mat-form-field> 
+                        <input matInput  type="text" formControlName="generado2" >
+                    </mat-form-field>
+                
+                </td>
+                <td class="resultado">{{array[2]}}</td>
+
+
+            </tr>
+
+            <tr>
+                
+                <td>(4)
+                    <mat-form-field> 
+                        <input matInput  type="text" formControlName="generado3" >
+                    </mat-form-field>
+                </td>
+                <td class="resultado">{{array[3]}}</td>
+  
+      
+                <td>(5)
+                    <mat-form-field> 
+                        <input matInput  type="text" formControlName="generado4" >
+                    </mat-form-field>
+                </td>
+                <td class="resultado">{{array[4]}}</td>
+
+               <td>(6)
+                    <mat-form-field> 
+                        <input matInput  type="text" formControlName="generado5" >
+                    </mat-form-field>
+                </td>
+                <td class="resultado">{{array[5]}}</td>
+            </tr>
+            <tr>
+
+                <td>(7)
+                    <mat-form-field> 
+                        <input matInput  type="text" formControlName="generado6" >
+                    </mat-form-field>
+                </td>
+                <td class="resultado">{{array[6]}}</td>
+               
+               <td>(8)
+                    <mat-form-field> 
+                        <input matInput  type="text" formControlName="generado7" >
+                    </mat-form-field>
+                </td>
+                <td class="resultado">{{array[7]}}</td>
+
+                <td>(9)
+                    <mat-form-field> 
+                        <input matInput  type="text" formControlName="generado8" >
+                    </mat-form-field>
+                
+                </td>
+                <td class="resultado">{{array[8]}}</td>
+
+            </tr>
+           
+        </table>
+ <div *ngIf="terminado">Resultados: {{array}}  Puntuacion {{puntuacion}}</div>
     </div>
 </div>
 
