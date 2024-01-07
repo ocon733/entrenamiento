@@ -14,6 +14,9 @@ import { MultiPageComponent } from './multi-page/multi-page.component';
 import { MultiComponent } from './multi/multi.component';
 import { DiviPageComponent } from './division-page/divi-page.component';
 import { DiviComponent } from './division/divi.component';
+import { SecuenciasComponent } from './secuencias/secuencias.component';
+import { SecuenciasPageComponent } from './secuencias-page/secuencias-page.component';
+import { RelojComponent } from '../comun/reloj/reloj.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { DiviComponent } from './division/divi.component';
     MultiComponent,
     MultiPageComponent,
     DiviPageComponent,
-    DiviComponent
+    DiviComponent,
+    SecuenciasComponent,
+    SecuenciasPageComponent,
+    RelojComponent
     ],
   imports: [
     CommonModule,
@@ -33,7 +39,7 @@ import { DiviComponent } from './division/divi.component';
     MatRadioModule,
     MatCardModule,
     MatToolbarModule,
-    CalculoRoutingModule
+    CalculoRoutingModule,
     
   ]
 })

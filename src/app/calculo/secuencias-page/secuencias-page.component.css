@@ -1,0 +1,11 @@
+.cabecera-ejercicio{
+    text-align: center;
+}
+
+.caja-sumas {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    background-color: #ece8e8;
+}
+
+

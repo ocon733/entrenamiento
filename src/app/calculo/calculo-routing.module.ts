@@ -5,6 +5,7 @@ import { SumasPageComponent } from './sumas-page/sumas-page.component';
 import { RestaPageComponent } from './resta-page/resta-page.component';
 import { MultiPageComponent } from './multi-page/multi-page.component';
 import { DiviPageComponent } from './division-page/divi-page.component';
+import { SecuenciasPageComponent } from './secuencias-page/secuencias-page.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
       { path: 'sumas', component: SumasPageComponent},
       { path: 'restas', component: RestaPageComponent},
       { path: 'division', component: DiviPageComponent},
-      { path: 'multi', component: MultiPageComponent}
+      { path: 'multi', component: MultiPageComponent},
+      { path: 'secuencias', component: SecuenciasPageComponent}
 
     ]
   }

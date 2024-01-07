@@ -3,7 +3,7 @@ import { Operacion } from 'src/app/dashboard/interfaces/operacion.interface';
 import { Resultado } from '../interfaces/resultado.interface';
 import { ResultadosService } from '../../comun/resultados.service';
 import { GlobalService } from 'src/app/comun/global.service';
-
+import swal from 'sweetalert2';
 
 
 
@@ -54,10 +54,18 @@ export class RestaPageComponent {
       }
     }
 
-    let resp = confirm("¿Desea guardar el resultado?");
+    swal.fire({
+      title: "Confirmación",
+      text: "¿Desea guardar el resultado?",
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí"
+    }).then((result) => {
+      if (result.isConfirmed) {
 
-    if ( resp){
-      let res:Resultado = {
+        let res:Resultado = {
         id_resultado:null,
         id_usuario:  this.globalService.usuario.id_usuario,
         categoria:"aritmetica",
@@ -65,13 +73,11 @@ export class RestaPageComponent {
         tiempo_total: this.tiempo,
         puntuacion: this.puntuacion,
         fecha:new Date()
-        } 
-      
-      this.resultadoService.setResultado(res).subscribe(() => {
-        alert("Registro guardado");
-      });
-    }
-
+        }
+        this.resultadoService.setResultado(res).subscribe(() => {
+          swal.fire(  'Info',  'Registro guardado',  'success');
+        });
+      }});
   }
 
 

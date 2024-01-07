@@ -1,0 +1,12 @@
+<div class="cabecera-ejercicio">
+    <h3>Ejercicio de SECUENCIAS : Indica cual sería el siguiente valor según la secuencia dada</h3>
+    <hr/>
+    <app-reloj [atras]=true [reloj]=reloj [tiempo]=600 #contador></app-reloj>
+    <div>
+        <button mat-raised-button color="primary" (click)="iniciar();contador.iniciar();">Comenzar</button>&nbsp;
+        <button mat-raised-button color="primary" (click)="contador.finalizar();">Finalizar</button>
+    </div>
+</div>
+<div class="caja-sumas">
+    <app-secuencias></app-secuencias>
+</div>

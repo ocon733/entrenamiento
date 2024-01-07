@@ -14,6 +14,7 @@ import { CabeceraComponent } from './comun/cabecera/cabecera.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { PieComponent } from './comun/pie/pie.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
