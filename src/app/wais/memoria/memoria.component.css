@@ -45,3 +45,12 @@ button{
 table{
     margin-left: 5px;
 }
+
+.resultados{
+    text-align: center;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(162, 241, 241);
+    background: linear-gradient(0deg,#c0cfdc,#fff);
+}

@@ -10,6 +10,8 @@ import { SecuenciasComponent } from '../secuencias/secuencias.component';
 export class SecuenciasPageComponent {
 
   iniciado:boolean = false;
+  finalizado:boolean = false;
+  puntuacion:number = 0;
   reloj:string = "10:00";
 
 

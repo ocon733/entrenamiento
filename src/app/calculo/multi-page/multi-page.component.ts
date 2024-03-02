@@ -3,7 +3,7 @@ import { Operacion } from 'src/app/dashboard/interfaces/operacion.interface';
 import { Resultado } from '../interfaces/resultado.interface';
 import { ResultadosService } from '../../comun/resultados.service';
 import { GlobalService } from 'src/app/comun/global.service';
-
+import swal from 'sweetalert2';
 
 
 
@@ -16,10 +16,11 @@ export class MultiPageComponent {
   iniciado:boolean = false;
   finalizado:boolean = false;
   puntuacion:number = 0;
-  sumas:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  sumas:number[] = [0,0,0,0,0,0,0,0,0,0];
   operaciones:Operacion[] = [];
-  tiempo:number = 600;
-  reloj:string = "10:00";
+  OPERACIONES:number = 10;
+  tiempo:number = 60;
+  reloj:string = "01:00";
   timer:any;
 
   constructor(private resultadoService:ResultadosService,private globalService:GlobalService){ }
@@ -29,7 +30,7 @@ export class MultiPageComponent {
     this.iniciado = true;
 
     // se inicializa el array de operaciones
-    for ( var i=0; i<40; i++){
+    for ( var i=0; i< this.OPERACIONES; i++){
       this.operaciones[i] = {indice:i, msg:"",relleno:false,correcto:false}
     }
 
@@ -67,8 +68,9 @@ export class MultiPageComponent {
         alert("Registro guardado");
       });
     }
+  }
 
-
+  guardar(){
 
   }
 

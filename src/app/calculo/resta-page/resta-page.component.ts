@@ -16,14 +16,14 @@ export class RestaPageComponent {
   iniciado:boolean = false;
   finalizado:boolean = false;
   puntuacion:number = 0;
-  sumas:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  OPERACIONES:number = 40;
-  //sumas:number[] = [0,0,0,0,0];
-  //OPERACIONES:number = 5;
+  // sumas:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  // OPERACIONES:number = 40;
+  sumas:number[] = [0,0,0,0,0,0,0,0,0,0];
+  OPERACIONES:number = 10;
 
   operaciones:Operacion[] = [];
-  tiempo:number = 600;
-  reloj:string = "10:00";
+  tiempo:number = 60;
+  reloj:string = "01:00";
   timer:any;
 
   constructor(private resultadoService:ResultadosService,private globalService:GlobalService ){ }
@@ -54,6 +54,10 @@ export class RestaPageComponent {
       }
     }
 
+  }
+
+  guardar(){
+
     swal.fire({
       title: "Confirmación",
       text: "¿Desea guardar el resultado?",
@@ -79,6 +83,9 @@ export class RestaPageComponent {
         });
       }});
   }
+
+
+
 
 
   contador(){

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { OPER } from '../interfaces/operaciones.enum';
+import { Operacion } from 'src/app/dashboard/interfaces/operacion.interface';
 
 @Component({
   selector: 'app-secuencias',
@@ -8,7 +9,24 @@ import { OPER } from '../interfaces/operaciones.enum';
 })
 export class SecuenciasComponent implements OnInit {
 
+  @Input()
+  indice:number=0;
+
+  @Input()
+  finalizado:boolean=false;
+
+  @Output()
+  onChangeResultado: EventEmitter<Operacion> = new EventEmitter();
+
+  resultado:boolean = false;
+  oper:Operacion = {indice:this.indice, msg:"",relleno:false,correcto:false};
+
+  valor:string = "0";
+
+  
+  
   secuencia:number[] = [0,0,0,0,0,0];
+
 
 
   ngOnInit(): void {
@@ -250,6 +268,21 @@ export class SecuenciasComponent implements OnInit {
     }else{
         return 0;
     }
+
+  }
+
+
+  corregir(){
+
+    if ( this.valor == "" + this.secuencia[5]){
+      this.resultado = true;
+      this.oper = {indice:this.indice, msg:"Correcto",relleno:true,correcto:true};
+    }else{
+      this.resultado = false;
+      this.oper = {indice:this.indice, msg:"Error",relleno:true,correcto:false};
+    }
+    
+    this.onChangeResultado.emit(this.oper);
 
   }
 

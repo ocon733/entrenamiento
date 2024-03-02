@@ -3,6 +3,7 @@ import { Operacion } from 'src/app/dashboard/interfaces/operacion.interface';
 import { ResultadosService } from '../../comun/resultados.service';
 import { Resultado } from '../interfaces/resultado.interface';
 import { GlobalService } from 'src/app/comun/global.service';
+import swal from 'sweetalert2';
 
 
 
@@ -16,15 +17,15 @@ export class SumasPageComponent {
   iniciado:boolean = false;
   finalizado:boolean = false;
   puntuacion:number = 0;
-  sumas:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  OPERACIONES:number = 50;
-  /* DEMO ---> 
-  sumas:number[] = [0,0,0,0,0];
-  OPERACIONES:number = 5;
-  <--- DEMO */
+  // sumas:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  // OPERACIONES:number = 50;
+  /* DEMO ---> */
+  sumas:number[] = [0,0,0,0,0,0,0,0,0,0];
+  OPERACIONES:number = 10;
+  /* <--- DEMO */
   operaciones:Operacion[] = [];
-  tiempo:number = 300;
-  reloj:string = "05:00";
+  tiempo:number = 60;
+  reloj:string = "01:00";
   timer:any;
 
   constructor(private resultadoService:ResultadosService, private globalService:GlobalService){ }
@@ -48,36 +49,46 @@ export class SumasPageComponent {
 
   finalizar(){
     this.finalizado = true;
-    let puntos:number = 0;
+  
     clearInterval(this.timer);
     for (let oper of this.operaciones){
       if ( !oper.relleno || !oper.correcto){
-        puntos++;      
+        this.puntuacion++;      
       }
     }
-    this.puntuacion = puntos;
 
     
-    let resp = confirm("¿Desea guardar el resultado?");
-
-    if ( resp){
-      let res:Resultado = {
-        id_resultado:null,
-        id_usuario:  this.globalService.usuario.id_usuario,
-        categoria:"aritmetica",
-        tipo:"sumas",
-        tiempo_total: this.tiempo,
-        puntuacion: this.puntuacion,
-        fecha:new Date()
-        } 
-      
-      this.resultadoService.setResultado(res).subscribe(() => {
-        alert("Registro guardado");
-      });
-    }
-
-
+    
   }
+
+  guardar(){
+
+    swal.fire({
+      title: "Confirmación",
+      text: "¿Desea guardar el resultado?",
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí"
+    }).then((result) => {
+      if (result.isConfirmed) {
+          let res:Resultado = {
+            id_resultado:null,
+            id_usuario:  this.globalService.usuario.id_usuario,
+            categoria:"aritmetica",
+            tipo:"sumas",
+            tiempo_total: this.tiempo,
+            puntuacion: this.puntuacion,
+            fecha:new Date()
+            } 
+          
+          this.resultadoService.setResultado(res).subscribe(() => {
+            swal.fire(  'Info',  'Registro guardado',  'success');
+          });
+        }
+      });
+  };
 
 
   contador(){

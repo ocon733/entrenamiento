@@ -1,5 +1,5 @@
 <div class="cabecera-ejercicio">
-    <h3>Ejercicio de RESTAS : Revisa las siguientes 40 restas en menos de 10 minutos, indicando si están bien o mal.</h3>
+    <h3>Ejercicio de RESTAS : Revisa las siguientes 10 restas en menos de un minuto.</h3>
     <hr/>
     <div class="caja-reloj">
         <p class="reloj">{{reloj}}</p>       
@@ -18,7 +18,10 @@
     <div class="caja-sumas">
         <app-resta *ngFor="let s of sumas;index as indice;" [indice]=indice [finalizado]=finalizado  (onChangeResultado)="verifica($event)"></app-resta>
     </div>
-    <button mat-raised-button color="primary" (click)="finalizar()">Finalizar</button>
+    <div>
+        <button mat-raised-button color="primary" (click)="finalizar()">Finalizar</button>&nbsp;
+        <button mat-raised-button color="primary" (click)="guardar()">Guardar registro</button>
+    </div>    
 </ng-template>
 
 

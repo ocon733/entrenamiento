@@ -17,6 +17,7 @@ import { DiviComponent } from './division/divi.component';
 import { SecuenciasComponent } from './secuencias/secuencias.component';
 import { SecuenciasPageComponent } from './secuencias-page/secuencias-page.component';
 import { RelojComponent } from '../comun/reloj/reloj.component';
+import {FormsModule} from "@angular/forms"
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { RelojComponent } from '../comun/reloj/reloj.component';
     MatRadioModule,
     MatCardModule,
     MatToolbarModule,
+    FormsModule,
     CalculoRoutingModule,
     
   ]

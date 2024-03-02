@@ -3,7 +3,7 @@ import { Operacion } from 'src/app/dashboard/interfaces/operacion.interface';
 import { Resultado } from '../interfaces/resultado.interface';
 import { ResultadosService } from '../../comun/resultados.service';
 import { GlobalService } from 'src/app/comun/global.service';
-
+import swal from 'sweetalert2';
 
 
 
@@ -16,11 +16,13 @@ export class DiviPageComponent {
   iniciado:boolean = false;
   finalizado:boolean = false;
   puntuacion:number = 0;
-  sumas:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  // sumas:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  sumas:number[] = [0,0,0,0,0,0,0,0,0,0];
   operaciones:Operacion[] = [];
-  tiempo:number = 600;
-  reloj:string = "10:00";
+  tiempo:number = 60;
+  reloj:string = "01:00";
   timer:any;
+  OPERACIONES:number = 10;
 
   constructor(private resultadoService:ResultadosService,private globalService:GlobalService){ }
 
@@ -29,7 +31,7 @@ export class DiviPageComponent {
     this.iniciado = true;
 
     // se inicializa el array de operaciones
-    for ( var i=0; i<40; i++){
+    for ( var i=0; i<this.OPERACIONES; i++){
       this.operaciones[i] = {indice:i, msg:"",relleno:false,correcto:false}
     }
 
@@ -49,25 +51,37 @@ export class DiviPageComponent {
         this.puntuacion++;      
       }
     }
+  }
 
-    let resp = confirm("¿Desea guardar el resultado?");
 
-    if ( resp){
-      let res:Resultado = {
-        id_resultado:null,
-        id_usuario:  this.globalService.usuario.id_usuario,
-        categoria:"aritmetica",
-        tipo:"division",
-        tiempo_total: this.tiempo,
-        puntuacion: this.puntuacion,
-        fecha:new Date()
-        } 
+    guardar(){
+
+      swal.fire({
+        title: "Confirmación",
+        text: "¿Desea guardar el resultado?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí"
+      }).then((result) => {
+        if (result.isConfirmed) {
+    
+          let res:Resultado = {
+            id_resultado:null,
+            id_usuario:  this.globalService.usuario.id_usuario,
+            categoria:"aritmetica",
+            tipo:"division",
+            tiempo_total: this.tiempo,
+            puntuacion: this.puntuacion,
+            fecha:new Date()
+            } 
       
-      this.resultadoService.setResultado(res).subscribe(() => {
-        alert("Registro guardado");
+          this.resultadoService.setResultado(res).subscribe(() => {
+          swal.fire(  'Info',  'Registro guardado',  'success'); });
+        }
       });
     }
-  }
 
 
   contador(){
