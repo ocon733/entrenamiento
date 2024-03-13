@@ -1,17 +1,17 @@
 <div class="cabecera-ejercicio">
     <h3>Ejercicio de SECUENCIAS : Indica cual sería el siguiente valor según la secuencia dada</h3>
     <hr/>
-    <app-reloj [atras]=true [reloj]=reloj [tiempo]=600 #contador></app-reloj>
+    <app-reloj [atras]=true [reloj]=reloj [tiempo]=300 #contador></app-reloj>
     <div *ngIf="finalizado;">
         <h2>FALLOS: {{puntuacion}}</h2>
     </div> 
     <div>
         <button mat-raised-button color="primary" (click)="iniciar();contador.iniciar();">Comenzar</button>&nbsp;
-        <button mat-raised-button color="primary" (click)="contador.finalizar();">Finalizar</button>
+        <button mat-raised-button color="primary" (click)="contador.finalizar();finalizar()">Finalizar</button>
     </div>
 </div>
 <div *ngIf="iniciado;">
     <div class="caja-sumas">
-        <app-secuencias></app-secuencias>
+        <app-secuencias *ngFor="let s of secuencias;index as indice;" [indice]=indice [finalizado]=finalizado  (onChangeResultado)="verifica($event)"></app-secuencias>
     </div>
 </div>

@@ -5,6 +5,6 @@
  <div  class="numero"> {{secuencia[3]}},</div>
  <div  class="numero"> {{secuencia[4]}},</div>
 
- <input matInput  type="text" [(ngModel)]="valor" onblur="corregir()">
-
+ <input matInput  type="text" [(ngModel)]="valor" onblur="corregir()" style="text-align: right;" >
+<div *ngIf="finalizado;" class="resultado">Respuesta: {{secuencia[5]}}</div>
   </mat-card>

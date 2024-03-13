@@ -88,7 +88,7 @@ export class SumasPageComponent {
           });
         }
       });
-  };
+  }
 
 
   contador(){
