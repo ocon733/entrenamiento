@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RelojComponent } from '../../comun/reloj/reloj.component';
 import { SecuenciasComponent } from '../secuencias/secuencias.component';
 import { Operacion } from 'src/app/dashboard/interfaces/operacion.interface';
 import { ResultadosService } from 'src/app/comun/resultados.service';

@@ -1,1 +1,21 @@
-<p>velocidad works!</p>
+
+<h3 style="text-align: center;">Marque los símbolos iguales a la muestra de la izquierda</h3><hr/>
+<app-reloj [atras]=true [reloj]=reloj [tiempo]=300 #contador></app-reloj>
+   
+   <div *ngIf="!iniciado; else siIniciado">
+        <button mat-raised-button color="primary" (click)="iniciar()">Iniciar</button>
+    </div>
+    <div *ngIf="finalizado;">
+        <h2>FALLOS: {{puntuacion}}</h2>
+    </div> 
+
+
+
+
+<ng-template #siIniciado>
+    <app-simbolos *ngFor="let s of simbolos;index as indice;" [indice]=indice [finalizado]=finalizado  (onChangeResultado)="verifica($event)"></app-simbolos>
+    <div>
+        <button mat-raised-button color="primary" (click)="finalizar()">Finalizar</button>
+        <button mat-raised-button color="primary" (click)="guardar()">Guardar resultados</button>
+    </div>
+</ng-template>

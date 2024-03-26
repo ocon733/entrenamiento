@@ -11,8 +11,8 @@ import { ComprensionComponent } from './comprension/comprension.component';
 import { RazonamientoComponent } from './razonamiento/razonamiento.component';
 import { MemoriaComponent } from './memoria/memoria.component';
 import { VelocidadComponent } from './velocidad/velocidad.component'; 
-
-
+import { SimbolosComponent } from './velocidad/simbolos/simbolos.component';
+import { ComunModule } from '../comun.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { VelocidadComponent } from './velocidad/velocidad.component';
     ComprensionComponent,
     RazonamientoComponent,
     MemoriaComponent,
-    VelocidadComponent
+    VelocidadComponent,
+    SimbolosComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +30,8 @@ import { VelocidadComponent } from './velocidad/velocidad.component';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ComunModule
   ]
 })
 export class WaisModule { }

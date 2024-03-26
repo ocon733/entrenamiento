@@ -27,74 +27,94 @@ button{
     font-size: 40px;
 }
 
+
 .img1{
-    position:absolute;
-    top:300px;
-    left: 150px;
+    position:relative;
+    top:11px;
+    left: 10px;
     width: 50px;
     height: 50px;
+    box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.34);
 }
 .img2{
-    position:absolute;
-    top:300px;
-    left: 200px;
+    position:relative;
+    top:-39px;
+    left: 61px;
     width: 50px;
     height: 50px;
+    box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.34);
 }
 .img3{
-    position:absolute;
-    top:300px;
-    left: 250px;
+    position:relative;
+    top:-89px;
+    left: 112px;
     width: 50px;
     height: 50px;
+    box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.34);
 }
 .img4{
-    position:absolute;
-    top:350px;
-    left: 150px;
+    position:relative;
+    top:-88px;
+    left: 10px;
     width: 50px;
     height: 50px;
+    box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.34);
 }
 .img5{
-    position:absolute;
-    top:350px;
-    left: 200px;
+    position:relative;
+    top:-138px;
+    left: 61px;
     width: 50px;
     height: 50px;
+    box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.34);
 }
 .img6{
-    position:absolute;
-    top:350px;
-    left: 250px;
+    position:relative;
+    top:-188px;
+    left: 112px;
     width: 50px;
     height: 50px;
+    box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.34);
 }
 .img7{
-    position:absolute;
-    top:400px;
-    left: 150px;
+    position:relative;
+    top:-187px;
+    left: 10px;
     width: 50px;
     height: 50px;
+    box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.34);
 }
 .img8{
-    position:absolute;
-    top:400px;
-    left: 200px;
+    position:relative;
+    top:-237px;
+    left: 61px;
     width: 50px;
     height: 50px;
+    box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.34);
 }
 .img9{
-    position:absolute;
-    top:400px;
-    left: 250px;
+    position:relative;
+    top:-287px;
+    left:112px;
     width: 50px;
     height: 50px;
+    box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.34);
 }
 
 .caja{
   
-  
-    height: 260px;
-    background-color: #e7e7e7;
+    background-color:  #e7e7e7;
+    outline: 5px solid #aaa;
+    outline-offset: 0px;
+    padding-left: 50px;
+    width: 231px;
+    height: 231px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-top: 40px;
+
 }
 

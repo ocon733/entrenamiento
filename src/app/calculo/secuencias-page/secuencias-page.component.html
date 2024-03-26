@@ -4,10 +4,12 @@
     <app-reloj [atras]=true [reloj]=reloj [tiempo]=300 #contador></app-reloj>
     <div *ngIf="finalizado;">
         <h2>FALLOS: {{puntuacion}}</h2>
+        
     </div> 
     <div>
         <button mat-raised-button color="primary" (click)="iniciar();contador.iniciar();">Comenzar</button>&nbsp;
-        <button mat-raised-button color="primary" (click)="contador.finalizar();finalizar()">Finalizar</button>
+        <button mat-raised-button color="primary" (click)="contador.finalizar();finalizar()">Finalizar</button>&nbsp;
+        <button  *ngIf="finalizado;" mat-raised-button color="primary" (click)="guardar()">Guardar registro</button>
     </div>
 </div>
 <div *ngIf="iniciado;">

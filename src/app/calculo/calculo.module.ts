@@ -16,8 +16,9 @@ import { DiviPageComponent } from './division-page/divi-page.component';
 import { DiviComponent } from './division/divi.component';
 import { SecuenciasComponent } from './secuencias/secuencias.component';
 import { SecuenciasPageComponent } from './secuencias-page/secuencias-page.component';
-import { RelojComponent } from '../comun/reloj/reloj.component';
-import {FormsModule} from "@angular/forms"
+import {FormsModule} from "@angular/forms";
+import { ComunModule } from '../comun.module';
+
 
 @NgModule({
   declarations: [
@@ -31,9 +32,8 @@ import {FormsModule} from "@angular/forms"
     DiviPageComponent,
     DiviComponent,
     SecuenciasComponent,
-    SecuenciasPageComponent,
-    RelojComponent
-    ],
+    SecuenciasPageComponent
+  ],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -42,6 +42,7 @@ import {FormsModule} from "@angular/forms"
     MatToolbarModule,
     FormsModule,
     CalculoRoutingModule,
+    ComunModule
     
   ]
 })
