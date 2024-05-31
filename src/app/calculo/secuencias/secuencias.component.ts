@@ -21,7 +21,7 @@ export class SecuenciasComponent implements OnInit {
   resultado:boolean = false;
   oper:Operacion = {indice:this.indice, msg:"",relleno:false,correcto:false};
 
-  valor:string = "0";
+  valor:string = "";
 
   
   

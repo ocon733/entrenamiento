@@ -5,6 +5,7 @@ import { ComprensionComponent } from './comprension/comprension.component';
 import { RazonamientoComponent } from './razonamiento/razonamiento.component';
 import { VelocidadComponent } from './velocidad/velocidad.component';
 import { MemoriaComponent } from './memoria/memoria.component';
+import { BalanzasComponent } from './balanzas/balanzas.component';
 
 
 const routes: Routes = [
@@ -15,8 +16,8 @@ const routes: Routes = [
       { path: 'comprension', component:ComprensionComponent},
       { path: 'razonamiento', component: RazonamientoComponent},
       { path: 'memoria', component:MemoriaComponent},
-      { path: 'velocidad', component: VelocidadComponent}
-     
+      { path: 'velocidad', component: VelocidadComponent},
+      { path: 'balanzas', component: BalanzasComponent}
 
     ]
   }

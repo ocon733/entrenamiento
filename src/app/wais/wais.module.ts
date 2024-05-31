@@ -13,6 +13,7 @@ import { MemoriaComponent } from './memoria/memoria.component';
 import { VelocidadComponent } from './velocidad/velocidad.component'; 
 import { SimbolosComponent } from './velocidad/simbolos/simbolos.component';
 import { ComunModule } from '../comun.module';
+import { BalanzasComponent } from './balanzas/balanzas.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ComunModule } from '../comun.module';
     RazonamientoComponent,
     MemoriaComponent,
     VelocidadComponent,
-    SimbolosComponent
+    SimbolosComponent,
+    BalanzasComponent
   ],
   imports: [
     CommonModule,

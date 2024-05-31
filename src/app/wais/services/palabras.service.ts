@@ -12,8 +12,8 @@ export class PalabrasService {
   constructor(private http:HttpClient) { }
 
 
-  getPalabra(palabra_id:number) :Observable<Palabra>{
-    return this.http.get<Palabra>(Constantes.SERVER_API + "palabra/" + palabra_id)
+  getPalabra(palabra_id:number) :Observable<any>{
+    return this.http.get<Palabra>(Constantes.SERVER_AWS + palabra_id)
   }
 
 }

@@ -22,8 +22,7 @@ export class SimbolosComponent implements OnInit{
   oper:Operacion = {indice:this.indice, msg:"",relleno:false,correcto:false};
   rutas:string[] = [];
   muestra:string = "";
-  isSelected:boolean= false;
-  selected:boolean[] = [false,false,false,false,false,false];
+  selected:boolean[] = [false,false,false,false,false,false,false,false,false,false];
   correcto = false;
 
   ngOnInit(): void {
@@ -36,13 +35,15 @@ export class SimbolosComponent implements OnInit{
     let nfila:number = 0;
     let ncol:number = 0;
     
-    for ( let i=0; i< 6; i++){
+    for ( let i=0; i< this.selected.length; i++){
       nfila = Math.round(Math.random() * 3) + 1;
       ncol = Math.round(Math.random() * 18) + 1;
       this.rutas[i] = "./assets/simbolos/" + ngaleria + "/fila-" + nfila + "-columna-" + ncol + ".png";
     }
 
-    this.muestra = this.rutas[ Math.round(Math.random() * 6)];
+    
+    this.muestra = this.rutas[ Math.round(Math.random() * (this.selected.length -1))];
+    console.log("Ruta Muestra:" + this.muestra);
     
   }
 
@@ -53,25 +54,17 @@ export class SimbolosComponent implements OnInit{
 
   corregir(){
     this.correcto = true;
-    this.isSelected = false;
 
-    for ( let i:number = 0; i< 6; i++){
-      // si está seleccionada y no es igual que la muestra es incorrecto
-      if ( this.selected[i] == true && this.rutas[i] != this.muestra  ){
-                this.correcto = false;
-      }
+    for ( let i:number = 0; i< this.selected.length; i++){
 
-      // confirmar que por lo menos hay una seleccionada
-      if ( this.selected[i] == true){
-        this.isSelected = true;
+      if ( this.rutas[i] == this.muestra){
+         if ( this.selected[i] != true){
+          this.correcto = false;
+         }
       }
 
     }
 
-    // si no se ha seleccionado ninguna pasa a incorecto
-    if ( this.isSelected == false){
-      this.correcto = false;
-    }
 
     if ( this.correcto){
         this.oper = {indice:this.indice, msg:"Correcto",relleno:true,correcto:true};

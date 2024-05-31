@@ -16,7 +16,7 @@ export class ComprensionComponent implements OnInit{
   tiempo:number = 0;
   reloj:string = "00:00";
   timer:any;
-
+  terminado:boolean=false;
 
   ngOnInit(): void {
     this.semejanzasForm = this.formBuilder.group(
@@ -36,11 +36,12 @@ export class ComprensionComponent implements OnInit{
 
   generar(){
 
+    this.terminado = false;
     let id_palabra1:number = Math.round(Math.random() * 55092); 
-    this.palabraService.getPalabra(id_palabra1).subscribe((palabra) =>  this.semejanzasForm.controls["semejanza2"].setValue(palabra.palabra) )
+    this.palabraService.getPalabra(id_palabra1).subscribe((palabra) => this.semejanzasForm.controls["semejanza2"].setValue(JSON.parse(palabra[0]).palabra) )
 
     let id_palabra2 = Math.round(Math.random() * 55092); 
-    this.palabraService.getPalabra(id_palabra2).subscribe((palabra) =>  this.semejanzasForm.controls["semejanza1"].setValue(palabra.palabra) )
+    this.palabraService.getPalabra(id_palabra2).subscribe((palabra) =>  this.semejanzasForm.controls["semejanza1"].setValue(JSON.parse(palabra[0]).palabra) )
 
 
     this.timer = setInterval( () => {
@@ -51,6 +52,7 @@ export class ComprensionComponent implements OnInit{
 
   finalizar(){
     clearInterval(this.timer);
+    this.terminado = true;
   }
 
   contador(){
