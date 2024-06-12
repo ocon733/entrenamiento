@@ -14,13 +14,13 @@
     <mat-card-content class="semejanzas">
 
         
-       <a  *ngIf="terminado" target="_blank" href="https://www.google.com/search?q={{this.semejanzasForm.controls['semejanza1'].value}}">[ver]</a>
+       <a  *ngIf="terminado" target="_blank" href="https://dle.rae.es/{{this.semejanzasForm.controls['semejanza1'].value}}">[ver]</a>
          <mat-form-field >  
             <mat-label>Primera palabra a comparar</mat-label>
             <input matInput  type="text" formControlName="semejanza1" [readonly]="true" >
         </mat-form-field>
         
-        <a *ngIf="terminado" target="_blank" href="https://www.google.com/search?q={{this.semejanzasForm.controls['semejanza2'].value}}">[ver]</a>
+        <a *ngIf="terminado" target="_blank" href="https://dle.rae.es/{{this.semejanzasForm.controls['semejanza2'].value}}">[ver]</a>
         <mat-form-field>        
             <mat-label>Segunda palabra a comparar</mat-label>
             <input matInput  type="text" formControlName="semejanza2" [readonly]="true">
