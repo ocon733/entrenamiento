@@ -14,6 +14,7 @@ import { VelocidadComponent } from './velocidad/velocidad.component';
 import { SimbolosComponent } from './velocidad/simbolos/simbolos.component';
 import { ComunModule } from '../comun.module';
 import { BalanzasComponent } from './balanzas/balanzas.component';
+import { PlatillosComponent } from './balanzas/platillos/platillos.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BalanzasComponent } from './balanzas/balanzas.component';
     MemoriaComponent,
     VelocidadComponent,
     SimbolosComponent,
-    BalanzasComponent
+    BalanzasComponent,
+    PlatillosComponent
   ],
   imports: [
     CommonModule,
