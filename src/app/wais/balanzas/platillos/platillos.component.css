@@ -1,0 +1,24 @@
+.balanza{
+  display: flex;
+  flex-direction: row;
+  background-color: grey;
+  width: 300px;
+  height: 146px;
+  margin: 15px;
+  align-items: end;
+}
+
+.platillo {
+    width: 140px;
+    height: 125px;
+    border-style: inset;
+    border-width: 1px;
+    border-color:black;
+    margin: 10px;
+    padding: 3px;
+    display:flex;
+    flex-direction: row;
+    align-items: flex-end;
+    background-color: white;
+}
+

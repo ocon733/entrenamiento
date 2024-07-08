@@ -11,6 +11,10 @@ export class PlatillosComponent implements OnInit{
   @Input()
   dibujos:Figura[]= [];
 
+ @Input()
+ pregunta:boolean = true;
+
+
   multiBalanza1:number[] = [0,0,0];
   figurasMostrada1:number[] = [0,0,0];
   sumaB1:number = 0;
@@ -148,6 +152,14 @@ export class PlatillosComponent implements OnInit{
           this.sumaB1 = this.sumaB1 + ( this.dibujos[ this.figurasMostrada1[i] ].valor * this.multiBalanza1[i]);         
         }
 
+  }
+
+  mostrar(){
+    if ( this.pregunta){
+      this.pregunta = false;
+    }else{
+      this.pregunta = true;
+    }
   }
 
 
