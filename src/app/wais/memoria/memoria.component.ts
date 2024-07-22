@@ -35,9 +35,14 @@ export class MemoriaComponent implements OnInit{
   terminado:boolean= false;
 
   /**
-   * Cada 5 segundos se genera un nuevo numero hasta 5
+   * Se genera un nuevo numero hasta 5
    */
   tiempo_generacion:number = 5;
+
+  /**
+   * Milisegundos en cada generación de número a memorizar
+   */
+  timeMemory:number = 15000;
 
   constructor(private formBuilder:FormBuilder,
     private globalService:GlobalService,
@@ -70,7 +75,7 @@ export class MemoriaComponent implements OnInit{
     this.contador_generacion();
     this.timer_generacion = setInterval( () => {
       this.contador_generacion();
-    }, 5000 );
+    }, this.timeMemory );
   }
 
   /**

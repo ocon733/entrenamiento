@@ -31,7 +31,8 @@ export class RazonamientoComponent {
 
 
   generar(){
-
+    this.reloj = "00:00";
+    this.tiempo = 0;
     for (var i=0; i<9; i++){
       let generado = Math.round(Math.random() * 3);
       if (generado == 1){
