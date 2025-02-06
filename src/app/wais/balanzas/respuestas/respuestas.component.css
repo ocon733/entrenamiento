@@ -1,0 +1,44 @@
+.balanza{
+    display: flex;
+    flex-direction: row;
+    background-image: url("../../../../assets/pesos/balanza.png");
+    width: 300px;
+    height: 162px;
+    margin: 15px;
+    align-items: flex-end;
+  }
+  
+  .platillo1 {
+      width: 10px;
+      height: 100px;
+      margin: 10px;
+      margin-bottom:25px;
+      padding: 3px;
+      display:flex;
+      flex-flow: column-reverse;
+      align-items: self-end;
+      flex-wrap:wrap
+  }
+  
+
+  .figuras{
+    display:flex;
+    flex-direction: column;
+  }
+  
+  img{
+    padding: 1px;
+  }
+  
+  input{
+    text-align: right;
+    width: 30px;
+    margin-right: 10px;
+  }
+
+  .muestras{
+    display:flex;
+    flex-direction: row;
+    width: 430px;
+  
+  }

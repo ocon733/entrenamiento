@@ -1,57 +1,17 @@
 
-<div class="balanza" (click)="mostrar()">
-    <div class="platillo">
-    <div class="figuras">
-        <img *ngIf="multiBalanza1[0] >= 1" src="{{dibujos[figurasMostrada1[0]].ruta}}" title="{{dibujos[figurasMostrada1[0]].valor}}" height="25" width="25"/>&nbsp;
-        <img *ngIf="multiBalanza1[0] >= 2" src="{{dibujos[figurasMostrada1[0]].ruta}}" title="{{dibujos[figurasMostrada1[0]].valor}}" height="25" width="25"/>&nbsp;
-        <img *ngIf="multiBalanza1[0] >= 3" src="{{dibujos[figurasMostrada1[0]].ruta}}" title="{{dibujos[figurasMostrada1[0]].valor}}" height="25" width="25"/>&nbsp;
-    </div>   
-
-    <div class="figuras">
-        <img *ngIf="multiBalanza1[1] >= 1" src="{{dibujos[figurasMostrada1[1]].ruta}}" title="{{dibujos[figurasMostrada1[1]].valor}}" height="25" width="25"/>&nbsp;
-        <img *ngIf="multiBalanza1[1] >= 2" src="{{dibujos[figurasMostrada1[1]].ruta}}" title="{{dibujos[figurasMostrada1[1]].valor}}" height="25" width="25"/>&nbsp;
-        <img *ngIf="multiBalanza1[1] >= 3" src="{{dibujos[figurasMostrada1[1]].ruta}}" title="{{dibujos[figurasMostrada1[1]].valor}}" height="25" width="25"/>&nbsp;
+<div class="balanza">
+    <div class="platillo1">
+        <div class="figuras" *ngFor="let x of dibujos; index as i" > 
+            <img  *ngFor="let y of numSequence(multiBalanza1[i])" src="{{x.ruta}}" title="{{x.valor}}" height="20" width="20"/> 
+        </div>
+       <div class="bordenumero" *ngIf="sumaB2 > sumaB1"> + {{sumaB2-sumaB1}}</div>
     </div>
 
-    <div class="figuras">
-        <img *ngIf="multiBalanza1[2] >= 1" src="{{dibujos[figurasMostrada1[2]].ruta}}" title="{{dibujos[figurasMostrada1[2]].valor}}" height="25" width="25"/>&nbsp;
-        <img *ngIf="multiBalanza1[2] >= 2" src="{{dibujos[figurasMostrada1[2]].ruta}}" title="{{dibujos[figurasMostrada1[2]].valor}}" height="25" width="25"/>&nbsp;
-        <img *ngIf="multiBalanza1[2] >= 3" src="{{dibujos[figurasMostrada1[2]].ruta}}" title="{{dibujos[figurasMostrada1[2]].valor}}" height="25" width="25"/>&nbsp;
+    <div class="platillo2" >
+        <div class="figuras"  *ngFor="let x of dibujos;index as e" >
+            <img *ngFor="let y of numSequence(multiBalanza2[e])" src="{{x.ruta}}" title="{{x.valor}}" height="20" width="20"/>
+        </div>
+        <div class="bordenumero" *ngIf="sumaB1 > sumaB2"> + {{sumaB1-sumaB2}}</div>
     </div>
-    <div class="figuras">
-        <img *ngIf="multiBalanza1[3] >= 1" src="{{dibujos[figurasMostrada1[3]].ruta}}" title="{{dibujos[figurasMostrada1[3]].valor}}" height="25" width="25"/>&nbsp;
-        <img *ngIf="multiBalanza1[3] >= 2" src="{{dibujos[figurasMostrada1[3]].ruta}}" title="{{dibujos[figurasMostrada1[3]].valor}}" height="25" width="25"/>&nbsp;
-        <img *ngIf="multiBalanza1[3] >= 3" src="{{dibujos[figurasMostrada1[3]].ruta}}" title="{{dibujos[figurasMostrada1[3]].valor}}" height="25" width="25"/>&nbsp;
-    </div>
-
-
 </div>
 
-<div class="platillo" *ngIf="pregunta" >
-  <div class="figuras">
-    <img *ngIf="multiBalanza2[0] >= 1" src="{{dibujos[figurasMostrada2[0]].ruta}}" title="{{dibujos[figurasMostrada2[0]].valor}}" height="25" width="25"/>&nbsp;
-    <img *ngIf="multiBalanza2[0] >= 2" src="{{dibujos[figurasMostrada2[0]].ruta}}" title="{{dibujos[figurasMostrada2[0]].valor}}" height="25" width="25"/>&nbsp;
-    <img *ngIf="multiBalanza2[0] >= 3" src="{{dibujos[figurasMostrada2[0]].ruta}}" title="{{dibujos[figurasMostrada2[0]].valor}}" height="25" width="25"/>&nbsp;
-  </div>
-
-    <div class="figuras">
-        <img *ngIf="multiBalanza2[1] >= 1" src="{{dibujos[figurasMostrada2[1]].ruta}}" title="{{dibujos[figurasMostrada2[1]].valor}}" height="25" width="25"/>&nbsp;
-        <img *ngIf="multiBalanza2[1] >= 2" src="{{dibujos[figurasMostrada2[1]].ruta}}" title="{{dibujos[figurasMostrada2[1]].valor}}" height="25" width="25"/>&nbsp;
-        <img *ngIf="multiBalanza2[1] >= 3" src="{{dibujos[figurasMostrada2[1]].ruta}}" title="{{dibujos[figurasMostrada2[1]].valor}}" height="25" width="25"/>&nbsp;
-    </div>
-
-    <div class="figuras">
-        <img *ngIf="multiBalanza2[2] >= 1" src="{{dibujos[figurasMostrada2[2]].ruta}}" title="{{dibujos[figurasMostrada2[2]].valor}}" height="25" width="25"/>&nbsp;
-        <img *ngIf="multiBalanza2[2] >= 2" src="{{dibujos[figurasMostrada2[2]].ruta}}" title="{{dibujos[figurasMostrada2[2]].valor}}" height="25" width="25"/>&nbsp;
-        <img *ngIf="multiBalanza2[2] >= 3" src="{{dibujos[figurasMostrada2[2]].ruta}}" title="{{dibujos[figurasMostrada2[2]].valor}}" height="25" width="25"/>&nbsp;
-    </div>
-
-    <div class="figuras">
-        <img *ngIf="multiBalanza2[3] >= 1" src="{{dibujos[figurasMostrada2[3]].ruta}}" title="{{dibujos[figurasMostrada2[3]].valor}}" height="25" width="25"/>&nbsp;
-        <img *ngIf="multiBalanza2[3] >= 2" src="{{dibujos[figurasMostrada2[3]].ruta}}" title="{{dibujos[figurasMostrada2[3]].valor}}" height="25" width="25"/>&nbsp;
-        <img *ngIf="multiBalanza2[3] >= 3" src="{{dibujos[figurasMostrada2[3]].ruta}}" title="{{dibujos[figurasMostrada2[3]].valor}}" height="25" width="25"/>&nbsp;
-    </div>
-  </div>
-  
-</div>
-<p>{{sumaB1}} - {{sumaB2}}</p>

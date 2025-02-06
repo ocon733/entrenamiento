@@ -17,6 +17,7 @@ export class DashboardLayoutComponent {
   @ViewChild('test') test!: ElementRef;
 
   operacion:string = "";
+  etiquetafallos:string="";
 
   constructor( private estadisticaService: EstadisticasService) {}
 
@@ -28,7 +29,15 @@ export class DashboardLayoutComponent {
     let tipo:string = this.test.nativeElement.value;
     this.operacion = this.test.nativeElement.selectedOptions[0].innerText;
 
+    if ( this.operacion == "Comprensión WAIS4" || this.operacion == "Razonamiento WAIS4" ){
+      this.etiquetafallos = "Puntuación";
+    }else {
+      this.etiquetafallos = "Número de fallos";
+    }
+
     this.estadisticaService.getResultados(tipo).subscribe((resp) => this.resultados = resp );
+
+
 
   }
 

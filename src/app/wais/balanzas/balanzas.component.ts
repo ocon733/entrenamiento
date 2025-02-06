@@ -9,12 +9,11 @@ import { Figura } from '../interfaces/figura.interface';
 export class BalanzasComponent implements OnInit{
 
   dibujos:Figura[]= [];
-  valorUnidad:number = 0;
+  resultado:number =0;
 
 
 ngOnInit(): void {
     this.asignarValores();
-    
   }
 
   /**
@@ -25,23 +24,18 @@ ngOnInit(): void {
     let valor1:boolean = false;
     let rutas:string[] = ["./assets/pesos/a.png","./assets/pesos/b.png","./assets/pesos/c.png","./assets/pesos/d.png","./assets/pesos/e.png","./assets/pesos/f.png"];
     
+    //Asigan valores a los dibujos
     for ( let i:number = 0; i < 6; i++){
       let n:number = Math.round(Math.random() * 3) + 1; 
       let f:Figura = { valor: n , ruta: rutas[i]};
       this.dibujos.push(f) ;
-      if ( n == 1){ 
-        valor1 = true;
-        this.valorUnidad = n;
-      }
     }
-    if ( !valor1){
-        this.valorUnidad = Math.round(Math.random() * 6)
-        this.dibujos[ this.valorUnidad].valor = 1;
-    }
+
 
   }
 
-
 }
+
+
 
 
