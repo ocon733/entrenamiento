@@ -54,3 +54,7 @@ table{
     background-color: rgb(162, 241, 241);
     background: linear-gradient(0deg,#c0cfdc,#fff);
 }
+
+.ayudanumero{
+    padding-left:20px;
+}

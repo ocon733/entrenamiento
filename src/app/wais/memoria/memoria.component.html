@@ -1,7 +1,7 @@
 <div [formGroup]="memoriaForm">
     <button mat-raised-button color="primary" (click)="iniciar()">Iniciar</button>
     <button mat-raised-button color="primary" (click)="finalizar()">Finalizar</button>
-    <button mat-raised-button color="primary" (click)="guardar()">Guardar resultados</button>
+    <button mat-raised-button color="warn" (click)="guardar()">Guardar resultados</button>
     
     <div class="caja-reloj">
         <p class="reloj">{{reloj}}</p>          
@@ -12,26 +12,32 @@
    
     
     <div>
-        <table  *ngIf="!previo">
+        <table  >
             <tr>
                 <td>  (1)
                     <mat-form-field> 
-                       <input matInput  type="text" formControlName="generado0" >
-                    </mat-form-field>
+                       <input matInput  type="text" formControlName="generado0" [readonly]="previo">
+                    </mat-form-field> 
+                    
                 </td>
 
                 <td>(2)
                     <mat-form-field> 
-                        <input matInput  type="text" formControlName="generado1" >
+                        <input matInput  type="text" formControlName="generado1"  [readonly]="previo">
                     </mat-form-field>
+                   
                 </td>
 
                 <td>
                     (3)
                     <mat-form-field> 
-                        <input matInput  type="text" formControlName="generado2" >
+                        <input matInput  type="text" formControlName="generado2"  [readonly]="previo">
                     </mat-form-field>
+                  
                 
+                </td>
+                <td rowspan="2" *ngIf="previo">
+                    <p class="ayudanumero" *ngFor="let n of ayuda">{{n}}</p>
                 </td>
                
 
@@ -41,18 +47,21 @@
                 
                 <td>(4)
                     <mat-form-field> 
-                        <input matInput  type="text" formControlName="generado3" >
+                        <input matInput  type="text" formControlName="generado3"  [readonly]="previo">
                     </mat-form-field>
+                   
                 </td>
        
                 <td>(5)
                     <mat-form-field> 
-                        <input matInput  type="text" formControlName="generado4" >
+                        <input matInput  type="text" formControlName="generado4"  [readonly]="previo">
                     </mat-form-field>
+                    
                 </td>
            </tr>
                 
         </table>
+
         <div *ngIf="terminado">
             <mat-card class="resultados">
                 <mat-card-title>Resultados:</mat-card-title>

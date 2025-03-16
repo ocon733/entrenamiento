@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Resultado } from 'src/app/calculo/interfaces/resultado.interface';
 import { GlobalService } from 'src/app/comun/global.service';
 import { ResultadosService } from 'src/app/comun/resultados.service';
+import { PalabrasService } from '../services/palabras.service';
+import swal from 'sweetalert2';
+import { Casillero } from '../interfaces/Casillero.interface';
 
 @Component({
   selector: 'app-memoria',
@@ -27,6 +30,7 @@ export class MemoriaComponent implements OnInit{
   timememorytest:number = 20;
   //array:number[] = [0,0,0,0,0,0,0,0,0];
   array:number[] = [0,0,0,0,0];
+  ayuda:string[] = [];
   num:number = 5;
   previo:boolean = true;
   generado:number =0;
@@ -42,11 +46,12 @@ export class MemoriaComponent implements OnInit{
   /**
    * Milisegundos en cada generación de número a memorizar
    */
-  timeMemory:number = 15000;
+  timeMemory:number = 5000; // 15000
 
   constructor(private formBuilder:FormBuilder,
     private globalService:GlobalService,
-    private resultadosService:ResultadosService) {}
+    private resultadosService:ResultadosService,
+    private palabrasService: PalabrasService ){}
 
   ngOnInit(): void {
 
@@ -113,8 +118,31 @@ export class MemoriaComponent implements OnInit{
         this.generado = Math.round(Math.random() * 9999);
         this.array[this.pos] = this.generado;
         this.pos++;
+        if( this.globalService.usuario.nombre !=""){
+          this.ayudaCasillero( this.generado );
+        }
       }      
       this.tiempo_generacion--;
+  }
+
+  ayudaCasillero(num:number){
+    let numero:string = "" + num;
+    let n1:string = numero.substring(0,2);
+    let n2:string = numero.substring(2,numero.length);
+    let cadena:string = "";
+   
+    this.palabrasService.getCasillero(n1).subscribe( value => {
+      cadena = n1 + ":  " + value.palabra1 + ", " + value.palabra2 + ", " + value.palabra3 + "\n";
+      this.ayuda.push(cadena);
+    });
+
+    this.palabrasService.getCasillero(n2).subscribe( value => {
+      cadena = n2 + ":  " + value.palabra1 + ", " + value.palabra2 + ", " + value.palabra3 + "\n";
+      this.ayuda.push(cadena);
+    });
+
+    
+
   }
 
   contador(){
@@ -130,7 +158,17 @@ export class MemoriaComponent implements OnInit{
   }
 
   guardar(){
-
+     swal.fire({
+            title: "Confirmación",
+            text: "¿Desea guardar el resultado?",
+            icon: "info",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Sí"
+          }).then((result) => {
+            if (result.isConfirmed) {
+     
     let res:Resultado = {
       id_resultado:null,
       id_usuario:  this.globalService.usuario.id_usuario,
@@ -141,10 +179,11 @@ export class MemoriaComponent implements OnInit{
       fecha:new Date()
       } 
     
-    this.resultadosService.setResultado(res).subscribe(() => {
-      alert("Registro guardado");
-    });
-  }
+     this.resultadosService.setResultado(res).subscribe(() => {
+              swal.fire(  'Info',  'Registro guardado',  'success'); });
+            }
+          });
+        }
 
 
 }

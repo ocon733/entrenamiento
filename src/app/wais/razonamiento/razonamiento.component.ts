@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Resultado } from 'src/app/calculo/interfaces/resultado.interface';
 import { GlobalService } from 'src/app/comun/global.service';
 import { ResultadosService } from 'src/app/comun/resultados.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-razonamiento',
@@ -71,6 +72,16 @@ export class RazonamientoComponent {
 
   guardar(){
 
+     swal.fire({
+                title: "Confirmación",
+                text: "¿Desea guardar el resultado?",
+                icon: "info",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Sí"
+              }).then((result) => {
+                if (result.isConfirmed) {
     let res:Resultado = {
       id_resultado:null,
       id_usuario:  this.globalService.usuario.id_usuario,
@@ -82,8 +93,9 @@ export class RazonamientoComponent {
       } 
     
     this.resultadosService.setResultado(res).subscribe(() => {
-      alert("Registro guardado");
-    });
-  }
+                 swal.fire(  'Info',  'Registro guardado',  'success'); });
+             }
+         });
+      }
 
 }
