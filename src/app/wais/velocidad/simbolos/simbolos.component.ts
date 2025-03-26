@@ -22,7 +22,10 @@ export class SimbolosComponent implements OnInit{
   oper:Operacion = {indice:this.indice, msg:"",relleno:false,correcto:false};
   rutas:string[] = [];
   muestra:string = "";
-  selected:boolean[] = [false,false,false,false,false,false,false,false,false,false];
+  muestra2:string = "";
+  muestra3:string = "";
+  selected:boolean[] = [];
+  numOpciones:number = 120;
   correcto = false;
 
   ngOnInit(): void {
@@ -31,19 +34,39 @@ export class SimbolosComponent implements OnInit{
 
 
   generateImg(){
-    let ngaleria:number = Math.round(Math.random() * 21) + 1;
+    let ngaleria1:number = Math.round(Math.random() * 21) + 1;
+    let ngaleria2:number = ngaleria1 +1;
+    let ngaleria:number;
+    if( ngaleria2 > 21){ 
+        ngaleria2 = ngaleria1 -1;
+    }
+    
     let nfila:number = 0;
     let ncol:number = 0;
+
+    for (let e=0; e< this.numOpciones; e++){
+      this.selected[e] = false;
+    }
+
+
     
-    for ( let i=0; i< this.selected.length; i++){
+    for ( let i=0; i< this.numOpciones; i++){
       nfila = Math.round(Math.random() * 3) + 1;
       ncol = Math.round(Math.random() * 18) + 1;
+      let num = Math.round(Math.random() * 1);
+      if ( num == 0){
+        ngaleria = ngaleria1;
+      }else{
+        ngaleria = ngaleria2;
+      }
+
       this.rutas[i] = "./assets/simbolos/" + ngaleria + "/fila-" + nfila + "-columna-" + ncol + ".png";
     }
 
     
-    this.muestra = this.rutas[ Math.round(Math.random() * (this.selected.length -1))];
-    console.log("Ruta Muestra:" + this.muestra);
+    this.muestra  = this.rutas[ Math.round(Math.random() * (this.selected.length -1))];
+    this.muestra2 = this.rutas[ Math.round(Math.random() * (this.selected.length -1))];
+    this.muestra3 = this.rutas[ Math.round(Math.random() * (this.selected.length -1))];
     
   }
 
@@ -57,7 +80,7 @@ export class SimbolosComponent implements OnInit{
 
     for ( let i:number = 0; i< this.selected.length; i++){
 
-      if ( this.rutas[i] == this.muestra){
+      if ( this.rutas[i] == this.muestra || this.rutas[i] == this.muestra2 || this.rutas[i] == this.muestra3){
          if ( this.selected[i] != true){
           this.correcto = false;
          }

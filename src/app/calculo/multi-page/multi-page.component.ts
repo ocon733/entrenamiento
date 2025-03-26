@@ -19,8 +19,8 @@ export class MultiPageComponent {
   sumas:number[] = [0,0,0,0,0,0,0,0,0,0];
   operaciones:Operacion[] = [];
   OPERACIONES:number = 10;
-  tiempo:number = 60;
-  reloj:string = "01:00";
+  tiempo:number = 300;
+  reloj:string = "05:00";
   timer:any;
 
   constructor(private resultadoService:ResultadosService,private globalService:GlobalService){ }

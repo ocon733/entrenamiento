@@ -1,6 +1,15 @@
 .cajaSimbolos{
     display:flex;
     margin:15px;
+    flex-wrap: wrap;
+}
+
+.cajaMuestras{
+    border-width: 2px;
+    border-style: solid;
+    border-color: darkgrey;
+    text-align: center;
+
 }
 
 img{

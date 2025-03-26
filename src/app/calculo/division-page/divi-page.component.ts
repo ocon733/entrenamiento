@@ -19,8 +19,8 @@ export class DiviPageComponent {
   // sumas:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   sumas:number[] = [0,0,0,0,0,0,0,0,0,0];
   operaciones:Operacion[] = [];
-  tiempo:number = 60;
-  reloj:string = "01:00";
+  tiempo:number = 300;
+  reloj:string = "05:00";
   timer:any;
   OPERACIONES:number = 10;
 

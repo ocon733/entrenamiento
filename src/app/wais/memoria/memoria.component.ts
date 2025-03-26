@@ -46,7 +46,7 @@ export class MemoriaComponent implements OnInit{
   /**
    * Milisegundos en cada generación de número a memorizar
    */
-  timeMemory:number = 5000; // 15000
+  timeMemory:number = 10000; 
 
   constructor(private formBuilder:FormBuilder,
     private globalService:GlobalService,
@@ -119,6 +119,7 @@ export class MemoriaComponent implements OnInit{
         this.array[this.pos] = this.generado;
         this.pos++;
         if( this.globalService.usuario.nombre !=""){
+          this.ayuda.length = 0;
           this.ayudaCasillero( this.generado );
         }
       }      

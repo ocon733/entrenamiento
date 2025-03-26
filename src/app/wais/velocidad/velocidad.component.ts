@@ -14,8 +14,8 @@ export class VelocidadComponent {
 
   tiempo:number = 300;
   reloj:string = "05:00";
-  simbolos:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  OPERACIONES:number = 20;
+  simbolos:number[] = [0];
+  OPERACIONES:number = 1;
   operaciones:Operacion[] = [];
   timer:any;
   iniciado:boolean = false;
