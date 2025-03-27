@@ -1,17 +1,16 @@
 
 <div class="balanza">
     <div class="platillo1">
-        <div class="figuras" *ngFor="let x of dibujos; index as i" > 
+        <div class="figuras" *ngFor="let x of dibujosBalanza1; index as i" > 
             <img  *ngFor="let y of numSequence(multiBalanza1[i])" src="{{x.ruta}}" title="{{x.valor}}" height="20" width="20"/> 
         </div>
-       <div class="bordenumero" *ngIf="sumaB2 > sumaB1"> + {{sumaB2-sumaB1}}</div>
+       
     </div>
 
     <div class="platillo2" >
-        <div class="figuras"  *ngFor="let x of dibujos;index as e" >
-            <img *ngFor="let y of numSequence(multiBalanza2[e])" src="{{x.ruta}}" title="{{x.valor}}" height="20" width="20"/>
+        <div class="figuras"  *ngFor="let x of dibujosBalanza2;index as e" >
+            <div *ngIf=!pregunta>
+                <img *ngFor="let y of numSequence(multiBalanza2[e])" src="{{x.ruta}}" title="{{x.valor}}" height="20" width="20"/>
+            </div>    
         </div>
-        <div class="bordenumero" *ngIf="sumaB1 > sumaB2"> + {{sumaB1-sumaB2}}</div>
-    </div>
 </div>
-

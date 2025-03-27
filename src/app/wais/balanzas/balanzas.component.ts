@@ -10,28 +10,46 @@ export class BalanzasComponent implements OnInit{
 
   dibujos:Figura[]= [];
   resultado:number =0;
+  valores:number[] = [1,2,3,4,5,6];
+
+  solucion:any = {};
 
 
 ngOnInit(): void {
     this.asignarValores();
   }
 
-  /**
-   * Asigna valores a cada una de las 6 figuras un valor del 0 al 3
-   * Asegurandose que hay por lo menos un valor que vale 1
-   */
+
   asignarValores(){
     let valor1:boolean = false;
     let rutas:string[] = ["./assets/pesos/a.png","./assets/pesos/b.png","./assets/pesos/c.png","./assets/pesos/d.png","./assets/pesos/e.png","./assets/pesos/f.png"];
-    
+
+    //desordena los valores
+    this.shuffleArray();
+
+
     //Asigan valores a los dibujos
     for ( let i:number = 0; i < 6; i++){
-      let n:number = Math.round(Math.random() * 3) + 1; 
-      let f:Figura = { valor: n , ruta: rutas[i]};
+
+      let f:Figura = { valor: this.valores[i] , ruta: rutas[i]};
       this.dibujos.push(f) ;
     }
 
 
+  }
+
+   shuffleArray() {
+    let array:number[] = this.valores;
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Intercambio de elementos
+    }
+    this.valores = array;
+  }
+
+
+  getSolucion(valor:any){
+    this.solucion = valor;
   }
 
 }

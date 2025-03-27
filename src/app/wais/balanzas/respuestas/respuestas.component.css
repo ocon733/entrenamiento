@@ -1,44 +1,47 @@
-.balanza{
-    display: flex;
-    flex-direction: row;
-    background-image: url("../../../../assets/pesos/balanza.png");
-    width: 300px;
-    height: 162px;
-    margin: 15px;
-    align-items: flex-end;
-  }
-  
-  .platillo1 {
-      width: 10px;
-      height: 100px;
-      margin: 10px;
-      margin-bottom:25px;
-      padding: 3px;
-      display:flex;
-      flex-flow: column-reverse;
-      align-items: self-end;
-      flex-wrap:wrap
-  }
-  
+.caja{
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  margin: 15px;
+  width: 170px;
+  text-align:right;
+  padding: 10px;
+}
 
-  .figuras{
+.platillo1 {
+    width: 140px;
+    height: 100px;
+    margin: 10px;
+    margin-bottom:25px;
+    padding: 3px;
     display:flex;
-    flex-direction: column;
-  }
-  
-  img{
-    padding: 1px;
-  }
-  
-  input{
-    text-align: right;
-    width: 30px;
-    margin-right: 10px;
-  }
+    flex-flow: column-reverse;
+    align-items: self-end;
+    flex-wrap:wrap
+}
 
-  .muestras{
-    display:flex;
-    flex-direction: row;
-    width: 430px;
+.platillo2 {
+  width: 140px;
+  height: 100px;
+  margin: 10px 10px 25px 85px;
+  padding: 3px;
+  display:flex;
+  flex-direction: column-reverse;
+  align-items: self-end;
+  flex-wrap: wrap;
   
-  }
+}
+
+.figuras{
+  display:flex;
+  flex-direction: row;
+}
+
+img{
+  padding: 1px;
+}
+
+.bordenumero{
+  margin: 1px;
+  padding: 1px;
+}

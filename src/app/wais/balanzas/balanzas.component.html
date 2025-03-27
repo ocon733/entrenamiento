@@ -11,8 +11,8 @@
   <div class="muestra">
     <app-platillos [dibujos] = dibujos></app-platillos>
     <app-platillos [dibujos] = dibujos></app-platillos>
-    <app-platillos [dibujos] = dibujos></app-platillos>
+    <app-platillos [dibujos] = dibujos [pregunta] = true (solucionEvent)=getSolucion($event)></app-platillos>
 </div>
 <div class="muestra">
-  <app-respuestas [dibujos]=" dibujos"></app-respuestas>
+  <app-respuestas  [valor] = solucion [dibujos]="dibujos"  ></app-respuestas>
 </div>
